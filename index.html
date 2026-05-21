@@ -248,7 +248,7 @@ const moveY = Math.round((targetY - startY) * progress);
   const footerSubscribeEmail = document.getElementById("footer-subscribe-email");
   const footerSubscribeMessage = document.getElementById("footer-subscribe-message");
 
-  footerSubscribeForm.addEventListener("submit", function (event) {
+  footerSubscribeForm.addEventListener("submit", async function (event) {
     event.preventDefault();
 
     const email = footerSubscribeEmail.value.trim();
@@ -259,15 +259,34 @@ const moveY = Math.round((targetY - startY) * progress);
     }
 
     try {
-      // This sends email directly into Klaviyo profile system
-      window.klaviyo.push(["identify", {
-        $email: email
-      }]);
+      const response = await fetch("https://a.klaviyo.com/client/subscriptions/?company_id=Yd39B6", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          data: {
+            type: "subscription",
+            attributes: {
+              profile: {
+                data: {
+                  type: "profile",
+                  attributes: {
+                    email: email
+                  }
+                }
+              }
+            }
+          }
+        })
+      });
+
+      if (!response.ok) throw new Error();
 
       footerSubscribeMessage.textContent = "Thanks for subscribing!";
       footerSubscribeForm.reset();
-    } catch (error) {
-      footerSubscribeMessage.textContent = "Unable to subscribe right now.";
+    } catch (err) {
+      footerSubscribeMessage.textContent = "Something went wrong.";
     }
   });
 </script>
