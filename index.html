@@ -25,6 +25,8 @@
 
     </head>
 
+<script async type='text/javascript' src='https://static.klaviyo.com/onsite/js/Yd39B6/klaviyo.js?company_id=Yd39B6'></script> <script type="text/javascript"> //Initialize Klaviyo object on page load !function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}(); </script>
+
 <body>
 
 <!-- NAV -->
@@ -44,27 +46,16 @@
     </div>
 
     <div class="nav-item">
-      <a href="#" class="nav-trigger">Sip</a>
+      <a href="#" class="nav-trigger">Café</a>
              <!--   <div class="dropdown">
         <a href="#">Coffee</a>
         <a href="#">Tea</a>
       </div> -->
     </div>
-
-    <div class="nav-item">
-      <a href="#" class="nav-trigger">Snack</a>
-       <!--     
-        <div class="dropdown">
-        <a href="#">Pastries</a>
-        <a href="#">Savory</a>
-        <a href="#">Sweets</a>  
-      </div>-->
-    </div>
   </div>
 
   <div class="nav-right">
-    <a href="#">About</a>
-    <a href="#">Archive</a> ⟡
+    <a href="#">About</a>⟡
   </div>
 </div>
 
@@ -137,7 +128,7 @@
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__grid">
-      <div class="footer__hours">HOURS: 12-8pm, Saturdays & Sundays</div>
+      <div class="footer__hours">HOURS: Coming soon!</div>
 
 
       <div class="footer__contact">
@@ -155,7 +146,7 @@
         <a href="/about">ABOUT</a>
         <a href="mailto:tableservicenyc@gmail.com">CONTACT</a>
         <a href="/gift-certificate">GIFT CERTIFICATES</a>
-        <a href="/shipping-returns">SHIPPING/RETURNS</a>
+
         <a href="/sell-your-books">SELL YOUR MILK GLASS</a>
         <a href="/events">EVENTS</a>
       </nav>
@@ -257,7 +248,7 @@ const moveY = Math.round((targetY - startY) * progress);
   const footerSubscribeEmail = document.getElementById("footer-subscribe-email");
   const footerSubscribeMessage = document.getElementById("footer-subscribe-message");
 
-  footerSubscribeForm.addEventListener("submit", async function (event) {
+  footerSubscribeForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
     const email = footerSubscribeEmail.value.trim();
@@ -268,35 +259,19 @@ const moveY = Math.round((targetY - startY) * progress);
     }
 
     try {
-      // invisible note:
-      // Replace "/api/subscribe" with the place you want emails to go.
-      // Common choices:
-      // 1) Your own backend endpoint, e.g. /api/subscribe
-      // 2) Mailchimp embedded form endpoint
-      // 3) Klaviyo list subscribe endpoint
-      // 4) ConvertKit form endpoint
-      // If you use your own backend, store the email in your database
-      // or forward it to your email platform there.
+      // This sends email directly into Klaviyo profile system
+      window.klaviyo.push(["identify", {
+        $email: email
+      }]);
 
-      const response = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email })
-      });
-
-      if (!response.ok) {
-        throw new Error("Subscription failed");
-      }
-
-      footerSubscribeMessage.textContent = "Thanks for subscribing.";
+      footerSubscribeMessage.textContent = "Thanks for subscribing!";
       footerSubscribeForm.reset();
     } catch (error) {
       footerSubscribeMessage.textContent = "Unable to subscribe right now.";
     }
   });
 </script>
+
 
 </body>
 
