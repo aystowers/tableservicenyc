@@ -65,8 +65,7 @@
     <!-- SUBHEADER -->
     <div id="subheader">
 
-        Each weekend, we offer a rotating menu of drinks, small bites, and desserts. Seating is walk-in only and available on a first-come basis.
-    </div>
+Each weekend, we offer a selection of drinks, small bites, and desserts. Seating is walk-in only and offered on a first-come, first-served basis.    </div>
     <br><br>
 
     <!-- CONTENT GRID -->
@@ -76,12 +75,14 @@
 
 <br>
 
-<!-- BOTTOM COPY -->
+<!-- BOTTOM COPY 
 
     <div id="subheader">
          <a href="https://www.instagram.com/tableservicenyc/?hl=en" target="_blank" rel="noopener noreferrer">Follow</a> our socials for this week's items.<br><br><br>
     </div>
 
+    -->
+<br>
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer__inner">
@@ -116,7 +117,7 @@
                             autocomplete="email"
                             required
                         />
-                        <button type="submit" aria-label="Submit email subscription">&#8599;</button>
+                        <button type="submit" aria-label="Submit email subscription">&#8594;</button>
                     </form>
 
                     <div class="footer__message" id="footer-subscribe-message" aria-live="polite"></div>
@@ -150,7 +151,7 @@
                     profiles: [{ email: email }]
                 }]);
 
-                message.textContent = "Thanks for subscribing!";
+                message.textContent = "Thank you for subscribing!";
                 form.reset();
             } catch (err) {
                 console.error("Klaviyo error:", err);
