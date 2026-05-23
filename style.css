@@ -666,6 +666,12 @@ background-color: white;
     padding: 0 20px;
   }
 
+#subheader p{      
+  font-size: 20px;
+  font-family: "Public Sans", sans-serif;
+  line-height: 1.2;
+
+
   .page-content.grid {
     padding: 0 20px 22vh;
     box-sizing: border-box;
@@ -986,6 +992,13 @@ background-color: white;
     font-family: 'nimbus-sans-l_regular-condensed';
     padding: 0 16px;
   }
+
+  #subheader p{      
+  font-size: 16px;
+  font-family: "Public Sans", sans-serif;
+  line-height: 1.2;
+
+
 
   .page-content.grid {
     padding: 0 16px 18vh;
