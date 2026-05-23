@@ -13,9 +13,6 @@ background-color: white;
     display: none; 
 }
 
-@font-face {
-  font-family: 'Pinyon Script', cursive;
-}
 
 @font-face {
   font-family: 'nimbus-sans-l_bold-condensed';
@@ -203,9 +200,10 @@ background-color: white;
     }
 
 #subheader p{      
-  font-size: 26px;
+  font-size: 24px;
   font-family: "Public Sans", sans-serif;
   line-height: 1.2;
+  margin-bottom: 5vw;
 
 }
     /* ================= HEADER UNAFE ================= */
@@ -667,10 +665,11 @@ background-color: white;
   }
 
 #subheader p{      
-  font-size: 20px;
+  font-size: 3vw;
   font-family: "Public Sans", sans-serif;
   line-height: 1.2;
-
+  margin-bottom: 2vw;
+}
 
   .page-content.grid {
     padding: 0 20px 22vh;
@@ -993,11 +992,11 @@ background-color: white;
     padding: 0 16px;
   }
 
-  #subheader p{      
-  font-size: 16px;
+#subheader p {
+  font-size: 20px;
   font-family: "Public Sans", sans-serif;
   line-height: 1.2;
-
+}
 
 
   .page-content.grid {
