@@ -24,15 +24,6 @@ background-color: white;
     src: url(fonts/nimbus-sans-l_regular-condensed.ttf);
 }
 
-
-@font-face {
-  font-family: 'Vulf-Mono-LightItalic';
-    src: url(fonts/Vulf-Mono-LightItalic.ttf);
-}
-
-
-
-
 @font-face {
   font-family: arrow;
   src: url(imgs/arrow.otf);
@@ -188,18 +179,17 @@ background-color: white;
 
     /* ================= SUBHEADER ================= */
 
-    #subheader {
+  #subheader {
       font-size: 4vw;
       line-height: 1.1;
       text-align: center;
-
       max-width: 34ch;
       margin: 7vw auto 0;
       font-family: 'nimbus-sans-l_regular-condensed';
       padding: 0 20px;
     }
 
-#subheader p{      
+  #subheader p{      
   font-size: 24px;
   font-family: "Public Sans", sans-serif;
   line-height: 1.2;
@@ -219,12 +209,12 @@ background-color: white;
 .header_tile img {
   width: 100%;
   display: block;
-
   height: 88vh;          /* controlled, not too tall */
   object-fit: cover;
   object-position: center;
   margin-top: 62px;
 }
+
 .header_tile--hero img {
   width: 100%;
   height: 88vh;
@@ -260,6 +250,7 @@ background-color: white;
   object-fit: cover;
   display: block;
 
+
 }
 
 
@@ -272,6 +263,23 @@ background-color: white;
   font-size: 18px;
 
 }
+
+.full_width_image img{
+
+  width: 100%;
+  display: block;
+  height: 88vh;          /* controlled, not too tall */
+  object-fit: cover;
+  object-position: center;
+  margin-top: 6vw; /* space below subheader (matches your old layout) */
+  padding-bottom: 2vh;
+}
+
+.full_width_image {
+  grid-column: 1 / -1;
+  padding: 0 30px;
+}
+
 
     /* ================= LINKS ================= */
 
@@ -503,9 +511,8 @@ background-color: white;
       width: 100%;
     }
 
-  }
-
-
+  
+}
 
 }
 
@@ -682,6 +689,20 @@ background-color: white;
     margin-top: 8vw;
     padding-bottom: 2vh;
   }
+
+.full_width_image img{
+  width: 100%;
+  display: block;
+  height: 70vh;          /* controlled, not too tall */
+  object-fit: cover;
+  object-position: center;
+  margin-top: 58px;
+}
+
+.full_width_image {
+    grid-column: 1 / -1;
+    padding: 0 20px;
+}
 
   .tile {
     max-height: 46vw;
@@ -1000,6 +1021,19 @@ background-color: white;
   line-height: 1.2;
 }
 
+.full_width_image img{
+  width: 100%;
+  display: block;
+    height: 54vh;
+    object-fit: cover;
+    object-position: center;
+    margin-top: 52px;
+}
+
+.full_width_image {
+    grid-column: 1 / -1;
+    padding: 0 16px;
+}
 
   .page-content.grid {
     padding: 0 16px 18vh;
