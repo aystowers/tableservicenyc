@@ -1014,9 +1014,9 @@ background-color: white;
   .header_tile img {
     width: 100%;
     display: block;
-    height: 54vh;
+    height: 66vh;
     object-fit: cover;
-    object-position: center;
+    object-position: right center;
     margin-top: 52px;
   }
 
@@ -1053,7 +1053,6 @@ background-color: white;
     object-position: center;
     margin-top: 52px;
 }
-
 
 
 .full_width_image {
