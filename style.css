@@ -1065,8 +1065,8 @@ background-color: white;
     padding: 0 16px 18vh;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 20px;
     margin-top: 10vw;
     padding-bottom: 2vh;
   }
