@@ -190,17 +190,14 @@ background-color: white;
     }
 
   #subheader_about p{  
-
       line-height: 1.1;
       text-align: center;
       max-width: 60ch;
       margin: 4vw auto 0;
       font-family: 'nimbus-sans-l_regular-condensed';
       padding: 0 20px;
-
-  font-size: 2.6vw;
-
-  margin-bottom: 6vw;
+      font-size: 2.8vw;
+      margin-bottom: 6vw;
 
 }
     /* ================= HEADER UNAFE ================= */
@@ -685,13 +682,12 @@ background-color: white;
 
       line-height: 1.2;
       text-align: center;
-      max-width: 40ch;
+      max-width: 32ch;
       margin: 6vw auto 0;
       font-family: 'nimbus-sans-l_regular-condensed';
       padding: 0 20px;
-
-  font-size: 4.4vw;
-  margin-bottom: 6vw;
+      font-size: 5vw;
+      margin-bottom: 11vw;
 
 }
 
@@ -700,9 +696,9 @@ background-color: white;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px 20px;
-    margin-top: 8vw;
-    padding-bottom: 3vh;
+    gap: 20px;
+    margin-top: 7vw;
+    padding-bottom: 4vh;
   }
 
 .full_width_image img{
@@ -720,12 +716,12 @@ background-color: white;
 }
 
   .tile {
-    max-height: 46vw;
+    max-height: none;
   }
 
   .tile img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     display: block;
   }
@@ -734,8 +730,10 @@ background-color: white;
     display: flex;
     justify-content: space-between;
     margin-top: 7px;
+    margin-bottom: -7px;
     font-size: 16px;
   }
+
 
   a {
     color: inherit;
@@ -1014,7 +1012,7 @@ background-color: white;
   .header_tile img {
     width: 100%;
     display: block;
-    height: 66vh;
+    height: 60vh;
     object-fit: cover;
     object-position: right center;
     margin-top: 52px;
@@ -1032,16 +1030,14 @@ background-color: white;
 
 
   #subheader_about p{  
-
       line-height: 1.2;
       text-align: center;
-      max-width: 36ch;
+      max-width: 30ch;
       margin: 7vw auto 0;
       font-family: 'nimbus-sans-l_regular-condensed';
       padding: 0 20px;
-
-  font-size: 5vw;
-  margin-bottom: 8vw;
+      font-size: 6.2vw;
+      margin-bottom: 8vw;
 
 }
 
@@ -1065,7 +1061,7 @@ background-color: white;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px 20px;
+    gap: 16px ;
     margin-top: 10vw;
     padding-bottom: 2vh;
   }
@@ -1084,7 +1080,8 @@ background-color: white;
   .caption {
     display: flex;
     justify-content: space-between;
-    margin-top: 7px;
+    margin-top: 6px;
+    margin-bottom: -6px;
     font-size: 14px;
   }
 
