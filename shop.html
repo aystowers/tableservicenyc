@@ -192,35 +192,94 @@
         </div>
     </footer>
 
-    <!-- KLAVIYO LIST INJECTION JS -->
-    <script>
-        const form = document.getElementById("footer-subscribe-form");
-        const emailInput = document.getElementById("footer-subscribe-email");
-        const message = document.getElementById("footer-subscribe-message");
+<!-- KLAVIYO SUBSCRIPTION FORM -->
 
-        form.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const email = emailInput.value.trim();
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("footer-subscribe-form");
+    const emailInput = document.getElementById("footer-subscribe-email");
+    const message = document.getElementById("footer-subscribe-message");
+    const submitButton = form.querySelector('button[type="submit"]');
 
-            if (!email) {
-                message.textContent = "Please enter an email address.";
-                return;
+    const KLAVIYO_PUBLIC_KEY = "Yd39B6";
+    const KLAVIYO_LIST_ID = "Sd6stV";
+
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const email = emailInput.value.trim();
+
+        if (!email || !emailInput.checkValidity()) {
+            message.textContent = "Please enter a valid email address.";
+            return;
+        }
+
+        submitButton.disabled = true;
+        message.textContent = "Submitting...";
+
+        try {
+            const response = await fetch(
+                `https://a.klaviyo.com/client/subscriptions/?company_id=${KLAVIYO_PUBLIC_KEY}`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/vnd.api+json",
+                        "revision": "2026-10-15"
+                    },
+                    body: JSON.stringify({
+                        data: {
+                            type: "subscription",
+                            attributes: {
+                                custom_source: "Table Service Website Footer",
+                                profile: {
+                                    data: {
+                                        type: "profile",
+                                        attributes: {
+                                            email: email,
+                                            subscriptions: {
+                                                email: {
+                                                    marketing: {
+                                                        consent: "SUBSCRIBED"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            relationships: {
+                                list: {
+                                    data: {
+                                        type: "list",
+                                        id: KLAVIYO_LIST_ID
+                                    }
+                                }
+                            }
+                        }
+                    })
+                }
+            );
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(
+                    errorData.errors?.[0]?.detail ||
+                    "Klaviyo could not process your subscription."
+                );
             }
 
-            try {
-                window._klOnsite = window._klOnsite || [];
-                window._klOnsite.push(["subscribe", {
-                    list: "VAccAG",
-                    profiles: [{ email: email }]
-                }]);
+            message.textContent = "Thank you for subscribing!";
+            form.reset();
 
-                message.textContent = "Thank you for subscribing!";
-                form.reset();
-            } catch (err) {
-                console.error("Klaviyo error:", err);
-                message.textContent = "Something went wrong.";
-            }
-        });
-    </script>
+        } catch (error) {
+            console.error("Subscription failed:", error);
+            message.textContent =
+                "Sorry, something went wrong. Please try again.";
+        } finally {
+            submitButton.disabled = false;
+        }
+    });
+});
+</script>
 </body>
 </html>

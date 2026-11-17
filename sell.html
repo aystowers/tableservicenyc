@@ -101,59 +101,114 @@
                     <a href="https://www.instagram.com/tableservicenyc/?hl=en" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
                     <a class="footer__instagram" href="https://www.are.na/table-service/table-service-mldcn_1tp-c/" target="_blank" rel="noopener noreferrer">ARE.NA</a>
 
-                    <form class="footer__subscribe" id="footer-subscribe-form" novalidate>
-                        <label class="sr-only" for="footer-subscribe-email">Subscribe to our mailing list</label>
-                        <input
-                            id="footer-subscribe-email"
-                            name="email"
-                            type="email"
-                            placeholder="SUBSCRIBE TO OUR MAILING LIST"
-                            autocomplete="email"
-                            required
-                        />
-                        <button type="submit" aria-label="Submit email subscription">&#8594;</button>
+                    <form class="footer__subscribe" id="footer-subscribe-form" novalidate> 
+                        
+                        <div class="klaviyo-form-RcK4RH"></div>
+                        
                     </form>
-                    
+
                     <div class="footer__message" id="footer-subscribe-message" aria-live="polite"></div>
+
+
                 </div>
 
-<div class="klaviyo-form-RcK4RH"></div>
-                
+
+                                           
                 <div class="footer__copyright">© 2026 TABLE SERVICE</div>
                 <a class="footer__terms" href="terms.html">TERMS</a>
             </div>
         </div>
     </footer>
 
-    <!-- KLAVIYO LIST INJECTION JS -->
-    <script>
-        const form = document.getElementById("footer-subscribe-form");
-        const emailInput = document.getElementById("footer-subscribe-email");
-        const message = document.getElementById("footer-subscribe-message");
 
-        form.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const email = emailInput.value.trim();
+<!-- KLAVIYO SUBSCRIPTION FORM -->
 
-            if (!email) {
-                message.textContent = "Please enter an email address.";
-                return;
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("footer-subscribe-form");
+    const emailInput = document.getElementById("footer-subscribe-email");
+    const message = document.getElementById("footer-subscribe-message");
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    const KLAVIYO_PUBLIC_KEY = "Yd39B6";
+    const KLAVIYO_LIST_ID = "Sd6stV";
+
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const email = emailInput.value.trim();
+
+        if (!email || !emailInput.checkValidity()) {
+            message.textContent = "Please enter a valid email address.";
+            return;
+        }
+
+        submitButton.disabled = true;
+        message.textContent = "Submitting...";
+
+        try {
+            const response = await fetch(
+                `https://a.klaviyo.com/client/subscriptions/?company_id=${KLAVIYO_PUBLIC_KEY}`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/vnd.api+json",
+                        "revision": "2026-10-15"
+                    },
+                    body: JSON.stringify({
+                        data: {
+                            type: "subscription",
+                            attributes: {
+                                custom_source: "Table Service Website Footer",
+                                profile: {
+                                    data: {
+                                        type: "profile",
+                                        attributes: {
+                                            email: email,
+                                            subscriptions: {
+                                                email: {
+                                                    marketing: {
+                                                        consent: "SUBSCRIBED"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            relationships: {
+                                list: {
+                                    data: {
+                                        type: "list",
+                                        id: KLAVIYO_LIST_ID
+                                    }
+                                }
+                            }
+                        }
+                    })
+                }
+            );
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(
+                    errorData.errors?.[0]?.detail ||
+                    "Klaviyo could not process your subscription."
+                );
             }
 
-            try {
-                window._klOnsite = window._klOnsite || [];
-                window._klOnsite.push(["subscribe", {
-                    list: "VAccAG",
-                    profiles: [{ email: email }]
-                }]);
+            message.textContent = "Thank you for subscribing!";
+            form.reset();
 
-                message.textContent = "Thank you for subscribing!";
-                form.reset();
-            } catch (err) {
-                console.error("Klaviyo error:", err);
-                message.textContent = "Something went wrong.";
-            }
-        });
-    </script>
+        } catch (error) {
+            console.error("Subscription failed:", error);
+            message.textContent =
+                "Sorry, something went wrong. Please try again.";
+        } finally {
+            submitButton.disabled = false;
+        }
+    });
+});
+</script>
 </body>
 </html>
