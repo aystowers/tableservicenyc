@@ -76,7 +76,7 @@
     </div>
 
     <div id="subheader_about">
-            <p>We specialize in milk glass, with a rotating collection of mugs, dinnerware, everyday objects, and books. A weekly menu of drinks, small bites, and desserts are served at the table; service is dine-in.<p>
+            <p>We specialize in milk glass, with a rotating collection of mugs, dinnerware, everyday objects, and books. A weekly menu of drinks, small bites, and desserts are served at the table; service is dine-in.</p>
 
     </div>
 
@@ -99,7 +99,7 @@
                     <a href="mailto:tableservicenyc@gmail.com">CONTACT</a>
                     <!--<a href="gift_certificates.html">GIFT CERTIFICATES</a>-->
                     <a href="sell.html">SELL YOUR MILK GLASS</a>
-                    <a href="events.html">PRIVATE EVENTS</a>
+                    <a href="events.html">EVENTS</a>
                 </nav>
 
                 <div class="footer__right">     
@@ -128,6 +128,7 @@
         </div>
     </footer>
 <!-- KLAVIYO SUBSCRIPTION FORM -->
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("footer-subscribe-form");
@@ -196,7 +197,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (!response.ok) {
                 const errorData = await response.json();
-                console.error("Klaviyo API Error:", errorData);
                 throw new Error(
                     errorData.errors?.[0]?.detail ||
                     "Klaviyo could not process your subscription."
