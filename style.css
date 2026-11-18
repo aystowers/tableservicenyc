@@ -193,7 +193,7 @@ background-color: white;
       line-height: 1.1;
       text-align: center;
       max-width: 60ch;
-      margin: 4vw auto 0;
+      margin: 6vw auto 0;
       font-family: 'nimbus-sans-l_regular-condensed';
       padding: 0 20px;
       font-size: 2.8vw;
@@ -238,7 +238,7 @@ background-color: white;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.4vw;
   margin-top: 7vw; /* space below subheader (matches your old layout) */
-  padding-bottom: 2vh;
+  padding-bottom: 0vh;
 }
 
 /* tile container controls height */
@@ -687,7 +687,7 @@ background-color: white;
       font-family: 'nimbus-sans-l_regular-condensed';
       padding: 0 20px;
       font-size: 5vw;
-      margin-bottom: 11vw;
+      margin-bottom: 6vw;
 
 }
 
@@ -698,7 +698,7 @@ background-color: white;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     margin-top: 7vw;
-    padding-bottom: 4vh;
+    padding-bottom: 0vh;
   }
 
 .full_width_image img{
@@ -1035,8 +1035,8 @@ background-color: white;
       max-width: 30ch;
       margin: 7vw auto 0;
       font-family: 'nimbus-sans-l_regular-condensed';
-      padding: 0 20px;
-      font-size: 6.2vw;
+      padding: 0 40px;
+      font-size: 6.8vw;
       margin-bottom: 8vw;
 
 }
@@ -1063,7 +1063,7 @@ background-color: white;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px ;
     margin-top: 10vw;
-    padding-bottom: 2vh;
+    padding-bottom: 0vh;
   }
 
   .tile {
